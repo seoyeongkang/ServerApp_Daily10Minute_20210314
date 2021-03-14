@@ -65,7 +65,7 @@ class ServerUtil {
 //                    toString() X, string() 활용
                     val bodyString = response.body!!.string()
 
-                    Log.d("서버 응답 본문 ", bodyString)
+                    Log.d("서버 응답 본문", bodyString)
 
                 }
 
