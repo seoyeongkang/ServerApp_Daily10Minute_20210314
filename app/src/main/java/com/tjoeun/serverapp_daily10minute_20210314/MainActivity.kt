@@ -2,6 +2,7 @@ package com.tjoeun.serverapp_daily10minute_20210314
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.tjoeun.serverapp_daily10minute_20210314.utils.ServerUtil
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity() {
@@ -25,7 +26,7 @@ class MainActivity : BaseActivity() {
 
 //            이 아이디/비번이 회원이 맞는지, 서버에 확인 요청 => 로그인.
 
-
+            ServerUtil.postRequestLogin(inputId, inputPw)
 
         }
 
