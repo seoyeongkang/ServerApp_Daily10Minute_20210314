@@ -77,12 +77,17 @@ class ServerUtil {
                     val codeNum = jsonObj.getInt("code")
 
 //                    연습 활용 : codeNum 200이면, 로그인 성공. 아니면 로그인 실패. 로그 찍기
+//                    로그인에 실패시 => 서버에서 알려주는 실패사유를 로그로 찍자
 
                     if(codeNum == 200){
                         Log.d("로그인 결과", "성공")
                     }
                     else {
                         Log.e("로그인 결과", "실패")
+
+//                        추가로, message로 달려있는 String을 추출
+                        val msgStr = jsonObj.getString("message")
+                        Log.e("로그인 실패사유", msgStr)
                     }
                 }
 
