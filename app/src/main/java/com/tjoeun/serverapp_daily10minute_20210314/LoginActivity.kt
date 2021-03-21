@@ -68,10 +68,7 @@ class LoginActivity : BaseActivity() {
                     
 //                    서버 / 앱 약속 : code가 200이면 로그인 성공. 그외 모든값 로그인 실패
 
-                    val myIntent = Intent(mContext, MainActivity::class.java)
-                    startActivity(myIntent)
-                    finish()
-                    
+
                     if(code == 200){
 //                        로그인 성공시 처리 => 메인화면 진입, 로그인화면 종료
 
