@@ -74,6 +74,12 @@ class LoginActivity : BaseActivity() {
                     
                     if(code == 200){
 //                        로그인 성공시 처리 => 메인화면 진입, 로그인화면 종료
+
+//                        토큰값이 뭔지 추출해서 => SharedPreferences에 저장
+
+                        val dataObj = json.getJSONObject("data")
+                        val token = dataObj.getString("token")
+
                     }
                     else{
 //                        실패 처리 => 서버가 알려주는 실패사유를 토스트로 띄워보자(UI반영)
