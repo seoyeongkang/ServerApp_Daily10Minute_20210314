@@ -61,9 +61,13 @@ class LoginActivity : BaseActivity() {
                     val code = json.getInt("code")
                     
 //                    서버 / 앱 약속 : code가 200이면 로그인 성공. 그외 모든값 로그인 실패
+
+                    val myIntent = Intent(mContext, MainActivity::class.java)
+                    startActivity(myIntent)
+                    finish()
                     
                     if(code == 200){
-//                        로그인 성공시 처리 => 향후 진행
+//                        로그인 성공시 처리 => 메인화면 진입, 로그인화면 종료
                     }
                     else{
 //                        실패 처리 => 서버가 알려주는 실패사유를 토스트로 띄워보자(UI반영)
