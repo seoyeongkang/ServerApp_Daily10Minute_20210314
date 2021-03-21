@@ -33,6 +33,19 @@ class SingUpActivity : BaseActivity() {
             ServerUtil.GetRequestEmailCheck(inputEmail, object : ServerUtil.JsonResponseHandler {
                 override fun onResponse(json: JSONObject) {
 
+//                    코드값이 200 -> 사용 가능. 아니면 사용 불가
+
+                    val code = json.getInt("code")
+
+                    runOnUiThread {
+                        if(code == 200){
+                            checkResultTxt.text = "사용해도 좋은 이메일입니다."
+                        }
+                        else{
+                            checkResultTxt.text = "다른 이메일을 입력후, 재검사 해주세요."
+                        }
+                    }
+
                 }
 
 
