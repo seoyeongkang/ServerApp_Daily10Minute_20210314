@@ -3,6 +3,7 @@ package com.tjoeun.serverapp_daily10minute_20210314
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import com.tjoeun.serverapp_daily10minute_20210314.utils.ServerUtil
 import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONObject
@@ -42,7 +43,12 @@ class MainActivity : BaseActivity() {
 //                        로그인 성공시 처리 => 향후 진행
                     }
                     else{
-//                        실패 처리 => 서버가 알려주는 실패사유를 토스트로 띄워보자(UI반용)
+//                        실패 처리 => 서버가 알려주는 실패사유를 토스트로 띄워보자(UI반영)
+
+                        val message = json.getString("message")
+
+//                        토스트를 띄우려고 하면 앱이 죽는다.
+                        Toast.makeText(mContext, "message", Toast.LENGTH_SHORT).show()
                     }
 
                 }
