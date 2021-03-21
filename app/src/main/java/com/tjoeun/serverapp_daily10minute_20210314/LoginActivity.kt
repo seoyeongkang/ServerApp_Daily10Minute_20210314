@@ -80,6 +80,9 @@ class LoginActivity : BaseActivity() {
                         val dataObj = json.getJSONObject("data")
                         val token = dataObj.getString("token")
 
+                        val myIntent = Intent(mContext, MainActivity::class.java)
+                        startActivity(myIntent)
+
                     }
                     else{
 //                        실패 처리 => 서버가 알려주는 실패사유를 토스트로 띄워보자(UI반영)
