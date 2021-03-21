@@ -1,5 +1,6 @@
 package com.tjoeun.serverapp_daily10minute_20210314
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -20,6 +21,12 @@ class MainActivity : BaseActivity() {
 
     }
     override fun setupEvents() {
+
+        signUpBtn.setOnClickListener {
+            val myIntent = Intent(mContext, SingUpActivity::class.java)
+            startActivity(myIntent)
+
+        }
 
         loginBtn.setOnClickListener {
 

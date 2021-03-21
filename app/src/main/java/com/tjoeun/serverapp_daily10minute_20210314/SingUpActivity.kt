@@ -11,9 +11,11 @@ class SingUpActivity : BaseActivity() {
         setupEvents()
         setValues()
     }
+
     override fun setupEvents() {
 
     }
+
     override fun setValues() {
 
     }
