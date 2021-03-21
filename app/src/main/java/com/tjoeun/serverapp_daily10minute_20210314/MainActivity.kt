@@ -47,8 +47,14 @@ class MainActivity : BaseActivity() {
 
                         val message = json.getString("message")
 
-//                        토스트를 띄우려고 하면 앱이 죽는다.
-                        Toast.makeText(mContext, "message", Toast.LENGTH_SHORT).show()
+//                       (백그라운드 쓰레드에서)  토스트를 띄우려고 하면 앱이 죽는다.
+//                        UI동작 관련 코드는, 반드시 UI 쓰레드에서만 동작 시켜야함
+
+                        runOnUiThread {
+                            Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show()
+                        }
+
+
                     }
 
                 }
