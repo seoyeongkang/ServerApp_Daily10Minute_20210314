@@ -118,6 +118,7 @@ class ServerUtil {
 
             val client = OkHttpClient()
 
+
             client.newCall(request).enqueue(object : Callback {
                 override fun onFailure(call: Call, e: IOException) {
 //                    서버 연결 자체 문제(skip)
