@@ -5,6 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.ImageView
+import android.widget.TextView
+import com.bumptech.glide.Glide
 import com.tjoeun.serverapp_daily10minute_20210314.R
 import com.tjoeun.serverapp_daily10minute_20210314.datas.Project
 
@@ -24,6 +27,18 @@ class ProjectAdapter(
         }
 
         val row = tempRow!!
+
+//        지금 뿌려진 줄의 프로젝트 데이터 불러오기
+        val data = mList[position]
+
+//        row(xml)안에서 > 반영해줄 UI 요소들 가져오기
+
+        val projectImg = row.findViewById<ImageView>(R.id.projectImg)
+        val projectTileTxt = row.findViewById<TextView>(R.id.projectTileTxt)
+
+        Glide.with(mContext).load(data.imageURL).into(projectImg)
+
+        projectTileTxt.text = data.title
 
         return row
     }

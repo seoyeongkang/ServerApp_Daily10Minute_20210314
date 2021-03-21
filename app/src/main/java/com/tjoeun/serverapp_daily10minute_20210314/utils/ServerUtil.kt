@@ -173,7 +173,7 @@ class ServerUtil {
         }
 
 //        프로젝트 목록 받아오는 함수
-        fun GetRequestProjectList(email: JsonResponseHandler, handler: JsonResponseHandler?){
+        fun GetRequestProjectList( handler: JsonResponseHandler?){
 
             val urlBuilder = "${HOST_URL}/project".toHttpUrlOrNull()!!.newBuilder()
 

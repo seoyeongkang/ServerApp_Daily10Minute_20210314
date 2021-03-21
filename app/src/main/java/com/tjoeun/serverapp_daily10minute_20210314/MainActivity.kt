@@ -12,11 +12,11 @@ class MainActivity : BaseActivity() {
 
     val mProjectList = ArrayList<Project>()
 
-    lateinit var mAdapter = ProjectAdapter
+    lateinit var mAdapter : ProjectAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        setContentView(R.layout.activity_main)
         setupEvents()
         setValues()
     }
@@ -64,6 +64,15 @@ class MainActivity : BaseActivity() {
 //                    가공된 데이터를 목록에 추가
 
                     mProjectList.add(project)
+                }
+
+//                for문 끝나면 => 모든 프로젝트가 목록에 추가도니 상태.
+//                목록 변경이 생겼은 => 어댑터 새로고침 필요
+
+                runOnUiThread {
+
+                    mAdapter.notifyDataSetChanged()
+
                 }
 
             }
