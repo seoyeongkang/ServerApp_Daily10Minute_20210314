@@ -89,6 +89,39 @@ class ServerUtil {
 
         }
 
+//        회원 가입 기능 담당 함수
+
+        fun putRequestSingUP(email : String, pw : String, nickname : String, handler: JsonResponseHandler?){
+
+//            서버에 회원가입 요청 : 어디로? url / 어떤데이터? 파라미터(formData)/ 어떤방식? PUT
+
+//            어디로? HOST_URL + /user 형태의 주소
+            val urlString = "${HOST_URL}/user"
+
+//            어떤 데이터? 어느 위치에? - 파라미터
+//            모든 파아미터를 formData에 담자
+
+            val formData = FormBody.Builder()
+                .add("email", email)
+                .add("password", pw)
+                .add("nick_name", nickname)
+                .build()
+
+//            어떤방식? + 모든 정보 종합 => Request 클래스 사용
+
+            val request = Request.Builder()
+                .url(urlString)
+                .put(formData)
+                .build()
+
+//            서버로 가기 위한 준비는 끝 => 실제로 (Client 클래스 도움) 출발
+
+            val client = OkHttpClient()
+
+            client.newCall(request)
+
+        }
+
     }
 
 }
