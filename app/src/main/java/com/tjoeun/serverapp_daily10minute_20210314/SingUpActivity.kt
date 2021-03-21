@@ -7,10 +7,10 @@ import android.text.TextWatcher
 import android.util.Log
 import android.widget.Toast
 import com.tjoeun.serverapp_daily10minute_20210314.utils.ServerUtil
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.activity_main.emailEdt
-import kotlinx.android.synthetic.main.activity_main.pwEdt
-import kotlinx.android.synthetic.main.activity_main.signUpBtn
+import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.activity_login.emailEdt
+import kotlinx.android.synthetic.main.activity_login.pwEdt
+import kotlinx.android.synthetic.main.activity_login.signUpBtn
 import kotlinx.android.synthetic.main.activity_sing_up.*
 import org.json.JSONObject
 
