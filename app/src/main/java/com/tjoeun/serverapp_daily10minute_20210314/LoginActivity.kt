@@ -80,8 +80,11 @@ class LoginActivity : BaseActivity() {
                         val dataObj = json.getJSONObject("data")
                         val token = dataObj.getString("token")
 
+                        ContextUril.setToken(mContext, token)
+
                         val myIntent = Intent(mContext, MainActivity::class.java)
                         startActivity(myIntent)
+                        finish()
 
                     }
                     else{
