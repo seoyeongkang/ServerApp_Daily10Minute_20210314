@@ -2,6 +2,9 @@ package com.tjoeun.serverapp_daily10minute_20210314
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.util.Log
 import android.widget.Toast
 import com.tjoeun.serverapp_daily10minute_20210314.utils.ServerUtil
 import kotlinx.android.synthetic.main.activity_main.*
@@ -21,7 +24,27 @@ class SingUpActivity : BaseActivity() {
     }
 
     override fun setupEvents() {
-        
+
+        emailEdt.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+//                Log.d("바뀐내용", s.toString())
+
+//                이메일의 내용이 타이핑되었다.=> 재검사 요구 문장으로 변경
+                checkResultTxt.text="이메일 중복 확인을 해주세요."
+
+            }
+
+
+        })
+
         checkEmailBtn.setOnClickListener { 
             
 //             입력한 이메일 => 서버에 중복 여부 확인
