@@ -1,8 +1,10 @@
 package com.tjoeun.serverapp_daily10minute_20210314
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AlertDialog
 import com.tjoeun.serverapp_daily10minute_20210314.adapters.ProjectAdapter
 import com.tjoeun.serverapp_daily10minute_20210314.datas.Project
 import com.tjoeun.serverapp_daily10minute_20210314.utils.ContextUtil
@@ -25,18 +27,33 @@ class MainActivity : BaseActivity() {
 
     override fun setupEvents() {
         
-        logoutBtn.setOnClickListener { 
-            
+        logoutBtn.setOnClickListener {
+
+//            정말 로그아웃 하시겠습니다? 얼럿띄우고 => OK인경우에만 로그아웃
+            val alert = AlertDialog.Builder(mContext)
+            alert.setTitle("로그아웃 확인")
+            alert.setMessage("정말 로그아웃 하시겠습니까?")
+            alert.setPositiveButton("확인", DialogInterface.OnClickListener { dialog, which ->
+
+//                확인 눌리면 => 로그아웃 실제 처리
 //            로그아웃? 기기에 저장된 토큰을 날리는 작업 => 저장된 토큰을 빈칸으로 돌리자
-            
-            ContextUtil.setToken(mContext, "")
+
+                ContextUtil.setToken(mContext, "")
 
 //            다시 로그인 화면으로 이동
-            val myintent = Intent(mContext, LoginActivity::class.java)
-            startActivity(myintent)
+                val myintent = Intent(mContext, LoginActivity::class.java)
+                startActivity(myintent)
 
-            finish()
+                finish()
+            })
+
+            alert.setNegativeButton("취소", null)
+            alert.show()
+
+
             
+
+
         }
 
     }
