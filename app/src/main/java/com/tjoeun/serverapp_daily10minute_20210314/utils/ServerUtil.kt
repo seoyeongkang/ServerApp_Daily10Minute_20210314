@@ -5,7 +5,6 @@ import okhttp3.*
 import okhttp3.HttpUrl.Companion.toHttpUrlOrNull
 import org.json.JSONObject
 import java.io.IOException
-import kotlin.math.log
 
 class ServerUtil {
 
@@ -174,7 +173,7 @@ class ServerUtil {
         }
 
 //        프로젝트 목록 받아오는 함수
-        fun GetRequestProjectList(email : String, handler: JsonResponseHandler?){
+        fun GetRequestProjectList(email: JsonResponseHandler, handler: JsonResponseHandler?){
 
             val urlBuilder = "${HOST_URL}/project".toHttpUrlOrNull()!!.newBuilder()
 
