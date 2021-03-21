@@ -33,7 +33,7 @@ class SingUpActivity : BaseActivity() {
             ServerUtil.putRequestSingUP(email, pw, nick, object :ServerUtil.JsonResponseHandler{
                 override fun onResponse(json: JSONObject) {
                     
-//                    회원 가입 결과에 따른 UI 입력
+//                    회원 가입 결과에 따른 UI 반영 필요
                 }
 
 
