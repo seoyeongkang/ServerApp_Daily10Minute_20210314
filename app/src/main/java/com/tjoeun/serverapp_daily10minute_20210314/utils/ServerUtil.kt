@@ -187,7 +187,7 @@ class ServerUtil {
             val request = Request.Builder()
                 .url(urlString)
                 .get()
-                .header("X-Http-Token", ContextUril.getToken(context))
+                .header("X-Http-Token", ContextUtil.getToken(context))
                 .build()
 
             val client = OkHttpClient()

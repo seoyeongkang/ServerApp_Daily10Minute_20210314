@@ -2,7 +2,7 @@ package com.tjoeun.serverapp_daily10minute_20210314.utils
 
 import android.content.Context
 
-class ContextUril {
+class ContextUtil {
 
     companion object {
 
