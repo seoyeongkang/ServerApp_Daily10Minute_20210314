@@ -21,6 +21,17 @@ class SingUpActivity : BaseActivity() {
     }
 
     override fun setupEvents() {
+        
+        checkEmailBtn.setOnClickListener { 
+            
+//             입력한 이메일 => 서버에 중복 여부 확인
+            
+            val inputEmail = emailEdt.text.toString()
+            
+//            서버에 -> /email_check 로 중복 확인 요청 -> ServerUtil 함수 추가 필요
+
+            
+        }
 
         signUpBtn.setOnClickListener {
 //            이메일/비번/닉네임 => 서버 회원 가입 기능에 전송
