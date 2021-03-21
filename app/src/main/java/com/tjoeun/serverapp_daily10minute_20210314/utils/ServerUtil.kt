@@ -132,6 +132,7 @@ class ServerUtil {
                     val jsonObj = JSONObject(bodyString)
                     Log.d("서버응답내용", jsonObj.toString())
 
+//                    완성된 JsongObj를 화면에 분석하도록 전달
                     handler?.onResponse((jsonObj))
 
 
