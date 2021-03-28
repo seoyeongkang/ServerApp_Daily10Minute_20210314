@@ -35,6 +35,9 @@ class ViewProjectDetailActivity : BaseActivity() {
 //        프로젝트 설명 문구
         projectDesc.text = mProject.description
 
+//        참여 인우너수 반영 : 7명 양식으로 가공
+        memberCountTxt.text = "${mProject.ongoingUsersCount}명"
+
 
     }
 }
