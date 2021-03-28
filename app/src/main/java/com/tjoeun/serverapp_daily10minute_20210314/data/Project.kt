@@ -47,12 +47,11 @@ class Project : Serializable {
 //            태그 목록(JSONArray)을 파싱 => String만 추출해서 해쉬태그 목록에 담아주자
             val tagsArr = jsonObj.getJSONArray("tags")
 
-            for(index  in  0 until tagsArr.length()){
+            for (index   in   0 until tagsArr.length()) {
                 val tagObj = tagsArr.getJSONObject(index)
-//                중괄호 { } 안에서 => title String만 꺼내서 태그 목록으로 추가
+//                중괄호 {  } 안에서 => title String만 꺼내서 태그목록으로 추가.
                 val tagTitle = tagObj.getString("title")
-
-                projectData.hashTags.add("tagTitle")
+                projectData.hashTags.add(tagTitle)
             }
 
 //            완성된 projectData가 결과 나가도록
