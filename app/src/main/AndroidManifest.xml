@@ -12,8 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ViewMemberListActivity"></activity>
-        <activity android:name=".ViewProjectDetailActivity"></activity>
+        <activity android:name=".ViewPhotoActivity"></activity>
+        <activity android:name=".ViewMemberListActivity" />
+        <activity android:name=".ViewProjectDetailActivity" />
         <activity
             android:name=".SplashActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
@@ -25,7 +26,7 @@
         </activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".SingUpActivity" />
-        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".LoginActivity" />
     </application>
 
 </manifest>

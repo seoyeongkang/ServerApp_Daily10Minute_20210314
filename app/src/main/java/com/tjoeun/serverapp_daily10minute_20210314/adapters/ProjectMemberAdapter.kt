@@ -1,6 +1,8 @@
 package com.tjoeun.serverapp_daily10minute_20210314.adapters
 
 import android.content.Context
+import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +11,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.tjoeun.serverapp_daily10minute_20210314.R
+import com.tjoeun.serverapp_daily10minute_20210314.ViewPhotoActivity
 import com.tjoeun.serverapp_daily10minute_20210314.data.User
 
 class ProjectMemberAdapter(
@@ -34,6 +37,21 @@ class ProjectMemberAdapter(
 
         Glide.with(mContext).load(memberData.profileImgUrls[0]).into(memberProfileImg)
         memberNicknameTxt.text = memberData.nickNAme
+        
+//        프로필 사진을 클릭하면 => 사진 크게 보기 화면으로 이동. 어댑터 안에서 코딩
+        memberProfileImg.setOnClickListener { 
+            Log.d("프사클릭", "${memberData.nickNAme}의 프사 클릭됨")
+
+            val myIntent = Intent(mContext, ViewPhotoActivity::class.java)
+            myIntent.putExtra("user", memberData)
+
+//            어댑터는 startActivity 사용X (상속 안받음)
+//            mContext 변수 : 어댑터를 사용하는 화면을 들고있는 역할
+//            mContext 의 기능중에 startActivity 사용
+            mContext.startActivity(myIntent)
+            
+        }
+        
 
         return row
 
