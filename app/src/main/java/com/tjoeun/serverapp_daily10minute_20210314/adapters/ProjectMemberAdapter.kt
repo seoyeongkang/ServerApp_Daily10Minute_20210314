@@ -5,6 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.ImageView
+import android.widget.TextView
+import com.bumptech.glide.Glide
 import com.tjoeun.serverapp_daily10minute_20210314.R
 import com.tjoeun.serverapp_daily10minute_20210314.data.User
 
@@ -24,7 +27,13 @@ class ProjectMemberAdapter(
 
         val row = tempRow!!
 
+        val memberData = mList[position]
 
+        val memberProfileImg = row.findViewById<ImageView>(R.id.memberProfileImage)
+        val memberNicknameTxt = row.findViewById<TextView>(R.id.memberNicknameTxt)
+
+        Glide.with(mContext).load(memberData.profileImgUrls[0]).into(memberProfileImg)
+        memberNicknameTxt.text = memberData.nickNAme
 
         return row
 
