@@ -222,7 +222,7 @@ class ServerUtil {
 
 //            POST 메쏘드 - formBody에 데이터 첨부
             val formData = FormBody.Builder()
-                .add("project_id ", projectId.toString())
+                .add("project_id", projectId.toString())
                 .build()
 
 //            API 요청(Request)을 어디로 어떻게 할건지 종합하는 변수

@@ -59,10 +59,9 @@ class ViewProjectDetailActivity : BaseActivity() {
                         mProject = projectData
                         
 //                        UI 상에서도 문구 반영
-                        runOnUiThread { 
-                            
-                            memberCountTxt.text = "${mProject.ongoingUsersCount}명"
-                            
+
+                        runOnUiThread {
+                            refreshUI()
                         }
 
                     }
@@ -90,6 +89,14 @@ class ViewProjectDetailActivity : BaseActivity() {
 //        들어오는 intent를 통해서 프로젝트정보 저장
         mProject = intent.getSerializableExtra("projectInfo") as Project
 
+        refreshUI()
+
+
+    }
+//    서버에서 받은 데이터(mProject)를 기반으로 => UI 새로 반영 함수
+
+    fun refreshUI(){
+
 //        프로젝트 제목 / 이미지 표시
         projectTileTxt.text = mProject.title
         Glide.with(mContext).load(mProject.imageURL).into(projectImg)
@@ -105,19 +112,19 @@ class ViewProjectDetailActivity : BaseActivity() {
         if(mProject.myLastStatus == "ONGOING"){
 //            참여가기 버튼 숨김
 //            포기 하기 버튼 보여주기
-            
+
             applyBtn.visibility = View.GONE
             giveUpBtn.visibility = View.VISIBLE
-            
-            
+
+
         }else {
 //            참여가기 버튼 보여주기
 //            포기 하기 버튼 숨김
             applyBtn.visibility = View.VISIBLE
             giveUpBtn.visibility = View.GONE
-            
+
         }
 
-
     }
+
 }
