@@ -32,6 +32,9 @@ class ViewProjectDetailActivity : BaseActivity() {
         projectTileTxt.text = mProject.title
         Glide.with(mContext).load(mProject.imageURL).into(projectImg)
 
+//        프로젝트 설명 문구
+        projectDesc.text = mProject.description
+
 
     }
 }
