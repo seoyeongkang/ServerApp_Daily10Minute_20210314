@@ -1,5 +1,6 @@
 package com.tjoeun.serverapp_daily10minute_20210314
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
@@ -128,6 +129,15 @@ class ViewProjectDetailActivity : BaseActivity() {
 
             })
 
+        }
+//        참여 인원 보기 누르면 =>
+
+        viewMemberBtn.setOnClickListener {
+
+            val myIntent = Intent(mContext, ViewMemberListActivity::class.java)
+            myIntent.putExtra("project", mProject)
+
+            startActivity(myIntent)
         }
     }
 
