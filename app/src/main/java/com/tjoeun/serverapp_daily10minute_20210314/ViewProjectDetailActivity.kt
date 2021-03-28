@@ -154,6 +154,10 @@ class ViewProjectDetailActivity : BaseActivity() {
 //        참여 인우너수 반영 : 7명 양식으로 가공
         memberCountTxt.text = "${mProject.ongoingUsersCount}명"
 
+//        인증 방법 : 단순 text 반영
+
+        proofMethodTxt.text = mProject.proofMethod
+
 //        내가 이 프로젝트에 참여중인가?
 //        참가 상태 == "ONGOING"이면 참여중, 그외 모든 경우 참여X
         if(mProject.myLastStatus == "ONGOING"){
@@ -202,6 +206,7 @@ class ViewProjectDetailActivity : BaseActivity() {
 
             }
         }
+
 
     }
 
