@@ -3,10 +3,9 @@ package com.tjoeun.serverapp_daily10minute_20210314
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AlertDialog
 import com.tjoeun.serverapp_daily10minute_20210314.adapters.ProjectAdapter
-import com.tjoeun.serverapp_daily10minute_20210314.datas.Project
+import com.tjoeun.serverapp_daily10minute_20210314.data.Project
 import com.tjoeun.serverapp_daily10minute_20210314.utils.ContextUtil
 import com.tjoeun.serverapp_daily10minute_20210314.utils.ServerUtil
 import kotlinx.android.synthetic.main.activity_main.*
@@ -97,15 +96,8 @@ class MainActivity : BaseActivity() {
 //                    {  } 프로젝트 정보 덩어리 JSONObject 추출
                     val projectObj = projectsArr.getJSONObject(i)
 
-//                    projectObj > Project 클래스 형태로 가공
-                    val project = Project()
-
-//                    {  }내부의 데이터를 => 데이터 클래스의 변수에 옮겨 적자
-                    project.id = projectObj.getInt("id")
-                    project.title = projectObj.getString("title")
-
-//                    왼쪽 변수 : 데이터 클래스에 만든 변수 Vs 오른쪽 이름표 : 서버가 내려주는 이름표
-                    project.imageURL = projectObj.getString("img_url")
+//                  projectObj를 가지고 => project로 변환 기능 핫용
+                    val project = Project.getProjectDataFromJson(projectObj)
 
 //                    가공된 데이터를 목록에 추가
 

@@ -9,7 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.tjoeun.serverapp_daily10minute_20210314.R
-import com.tjoeun.serverapp_daily10minute_20210314.datas.Project
+import com.tjoeun.serverapp_daily10minute_20210314.data.Project
 
 class ProjectAdapter(
     val mContext : Context,
