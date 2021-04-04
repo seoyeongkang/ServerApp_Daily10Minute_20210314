@@ -78,6 +78,9 @@ class MainActivity : BaseActivity() {
 
         backImg.visibility = View.GONE
 
+//        알림은 메인 화면에서만 보여주자
+        notiImg.visibility = View.VISIBLE
+
         mAdapter = ProjectAdapter(mContext, R.layout.project_list_item, mProjectList)
 
         projectListView.adapter = mAdapter
