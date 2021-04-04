@@ -12,10 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ViewPhotoActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
-
-        </activity>
+        <activity android:name=".ViewProofActivity"></activity>
+        <activity
+            android:name=".ViewPhotoActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"></activity>
         <activity android:name=".ViewMemberListActivity" />
         <activity android:name=".ViewProjectDetailActivity" />
         <activity

@@ -28,6 +28,15 @@ class ViewProjectDetailActivity : BaseActivity() {
         setValues()
     }
     override fun setupEvents() {
+
+//        인증글 보러가기 눌리면 => 화면 이동
+
+        viewProofBtn.setOnClickListener {
+            var myIntent = Intent(mContext, ViewProofActivity::class.java)
+            myIntent.putExtra("project", mProject)
+            startActivity(myIntent)
+        }
+
 //        참가 신청 버튼이 눌리면 => 신청 API 호출
 
         applyBtn.setOnClickListener {
