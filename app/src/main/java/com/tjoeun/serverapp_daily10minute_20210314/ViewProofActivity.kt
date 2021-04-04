@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.DatePicker
 import com.tjoeun.serverapp_daily10minute_20210314.data.Project
+import com.tjoeun.serverapp_daily10minute_20210314.data.Proof
 import com.tjoeun.serverapp_daily10minute_20210314.utils.ServerUtil
 import kotlinx.android.synthetic.main.activity_view_proof.*
 import org.json.JSONObject
@@ -12,6 +13,9 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class ViewProofActivity : BaseActivity() {
+
+//    인증글 목록이 담길 ArrayList
+    val mProofList = ArrayList<Proof>()
 
 //    인증 확인하려는 날짜를 Calendar 형태로 저장해주자
     val mProofDate = Calendar.getInstance()
@@ -76,6 +80,23 @@ class ViewProofActivity : BaseActivity() {
         val serverFormat = SimpleDateFormat("yyyy-MM-dd)")
         ServerUtil.getRequestProjectProofbyDate(mContext, mProject.id, serverFormat.format(mProofDate.time), object  : ServerUtil.JsonResponseHandler{
             override fun onResponse(json: JSONObject) {
+
+//                서버가 내려주는 인증글 목록을 담아주자
+
+                val dataObj = json.getJSONObject("data")
+                val projectObj = dataObj.getJSONObject("project")
+
+                val proofArr = projectObj.getJSONArray("proofs")
+
+                for (i  in 0 until proofArr.length() ){
+
+                    val proofObj = proofArr.getJSONObject(i)
+
+                    val proofData = Proof.getProofFromJson(proofObj)
+
+                    mProofList.add(proofData)
+
+                }
 
             }
 
