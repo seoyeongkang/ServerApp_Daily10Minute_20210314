@@ -425,6 +425,48 @@ class ServerUtil {
 
         }
 
+//        프로젝트 / 날짜별 인증글 목록 가져오기
+        fun getRequestProjectProofbyDate(context: Context, projectId : Int, proofDate : String, handler: JsonResponseHandler?){
+
+//            GET - 주소 완성 양식 2가지 방법
+//            GET : 조회 => 몇번 글? 상세조회 => /project/5 처럼, 주소 이어붙이는 식 => Path
+//            GET : 조회 => 게시글 목록? 진행중(조건 필터) => /project?status=ONGOING처럼, 파라미터 주소 나열 => Query
+
+
+    val urlBuilder = "${HOST_URL}/project".toHttpUrlOrNull()!!.newBuilder()
+    urlBuilder.addEncodedPathSegment(projectId.toString())
+    urlBuilder.addEncodedQueryParameter("proof_date", proofDate)
+
+    val urlString = urlBuilder.build().toString()
+
+    val request = Request.Builder()
+        .url(urlString)
+        .get()
+        .header("X-Http-Token", ContextUtil.getToken(context))
+        .build()
+
+    val client = OkHttpClient()
+    client.newCall(request).enqueue(object : Callback{
+        override fun onFailure(call: Call, e: IOException) {
+
+        }
+
+        override fun onResponse(call: Call, response: Response) {
+
+            val bodyString = response.body!!.string()
+            val jsonObj = JSONObject(bodyString)
+            Log.d("서버응답본문", jsonObj.toString())
+            handler?.onResponse(jsonObj)
+
+        }
+
+
+    })
+
+}
+
+
+
     }
 
 }
