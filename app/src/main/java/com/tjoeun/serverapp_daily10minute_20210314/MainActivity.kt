@@ -3,6 +3,7 @@ package com.tjoeun.serverapp_daily10minute_20210314
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AlertDialog
 import com.tjoeun.serverapp_daily10minute_20210314.adapters.ProjectAdapter
 import com.tjoeun.serverapp_daily10minute_20210314.data.Project
@@ -20,9 +21,9 @@ class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        setCustomActionBar()
         setupEvents()
         setValues()
-        setCustomActionBar()
     }
 
     override fun setupEvents() {
@@ -72,6 +73,11 @@ class MainActivity : BaseActivity() {
     }
 
     override fun setValues() {
+
+//        첫 화면 (메인화면) 에서는 뒤로가기 버튼을 달지 않는다.
+//        뒤로가기 버튼을 아예 숨겨두자(메인에서만)
+
+        backImg.visibility = View.GONE
 
         mAdapter = ProjectAdapter(mContext, R.layout.project_list_item, mProjectList)
 
